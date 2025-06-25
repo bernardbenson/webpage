@@ -1,190 +1,295 @@
-
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bernard Benson - Profile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* White background */
+            color: #1a1a1a; /* Dark text for accents */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-osx-font-smoothing: grayscale;
+        }
+        /* Style for active tab */
+        .tab-button.active {
+            border-color: #1a1a1a; /* Black border for active tab */
+            background-color: #f0f0f0; /* Light grey background for active tab */
+            color: #1a1a1a; /* Black text for active tab */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Custom styles for the profile image container within the two-column layout */
+        .profile-image-container {
+            width: 100%; /* Default to full width on small screens */
+            height: 250px; /* Fixed height for consistency */
+            overflow: hidden; /* Hide overflow for rounded corners */
+            position: relative; /* For absolute positioning of text if needed */
+        }
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the container without distorting aspect ratio */
+            object-position: center; /* Center the image */
+        }
 
-<title>Bernard Benson</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
-<body class="w3-light-grey">
- 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
- 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-black w3-card-4">
-        <div class="w3-display-container">
-          <img src="https://www.spaceweatherlive.com/images/news/267-header.jpg" style="width:100%" alt="Avatar">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2> Bernard Benson, PhD</h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i>Research Scientist at NASA-IMPACT</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-black"></i>Huntsville, AL</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black"></i>bernardbenson.dl@gmail.com</p>
-          <p><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-black"></i>Google Scholar-<a href="https://scholar.google.com/citations?user=uiHWfLEAAAAJ&hl=en&oi=ao"> Link </a> </p>
-          
-          <hr>
-          <hr>
-          
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-black"></i>About</b></p>
-          <p> I am a Research Scientist with over five years of academic research and applied ML experience.   </p>
-          
-          
-          <hr>
-          
- 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-black"></i>Research Interests</b></p>
-          <p>Image Processing</p>
-          <p>Signal Processing</p>
-          <p>Machine Learning</p>
-          <p>Deep Neural Networks</p>
-          <p>Solar Physics</p>
-          <p>Space Weather</p>
-         <p>Transportation</p>
-         <p>Operations Research</p>
-         
-          
-          <br>
- 
-        
-        </div>
-      </div><br>
- 
-    <!-- End Left Column -->
-    </div>
- 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-      <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-        <h2 class="w3-text-black w3-padding-16"><i class="fa fa fa-file-text w3-margin-right w3-xxlarge w3-text-black"></i>Publications</h2>
-        <div class="w3-container">
-        
-        <p> &middot; T. Singh, <b>B. Benson</b>, S. Raza, T. Kim, N. Pogorelov, W.P. Smith, C.N. Arge “Improving the Arrival Time Estimates of Coronal Mass Ejections by Using Magnetohydrodynamic Ensemble Modeling, Heliospheric Imager data, and Machine Learning”, <i> Astro Physical Journal (ApJ)</i>, February. 2023. (<a href="https://iopscience.iop.org/article/10.3847/1538-4357/acc10a/meta">Link</a>)</p> 
-        <p> &middot; R. Hooda, W. D. Pan and <b>B. Benson</b>, “Transform Decomposition Switching for Efficient Attribute Compression of 3D Point Clouds Using Neural Networks”, <i> in Proc. of 2022 International Conference on Computational Science and Computational Intelligence (CSCI'22)</i>, Las Vegas, NV, Dec. 2022. (<a href="https://reetuhooda.github.io/webpage/files/CSCI_V6.pdf">Link</a>) (<a href="https://american-cse.org/csci2022-ieee/pdfs/CSCI2022-2lPzsUSRQukMlxf8K2x89I/202800b410/202800b410.pdf">Slides</a>)</p>
-        <p> &middot; T. Singh, <b>B. Benson</b>, S. Raza, T. Kim, N. Pogorelov, “Improving the Arrival Time Prediction of Coronal Mass Ejections using Magnetohydrodynamic Ensemble Modeling, Heliospheric Imager data and Machine Learning”, <i> in Proc. of 2022 EGU General Assembly Conference Abstracts (EGU'22)</i>, Vienna, Austria, May. 2022. (<a href="https://meetingorganizer.copernicus.org/EGU22/EGU22-13167.html">Link</a>)</p>
-        <p> &middot; <b>B. Benson</b>, E. Brown, S. Bonasera,   G. Acciarini, J. A. Pérez-Hernández, E. Sutton, M. K. Jah, C. P. Bridges, M. Jin and A. G. Baydin    &#8220;Simultaneous Multivariate Forecast of Space WeatherIndices using Deep Neural Network Ensembles,&#8221<i> in Proc. of Fourth Workshop on Machine Learning and the Physical Sciences (NeurIPS 2021)</i>, Vancouver, CA, Dec. 2021. (<a href="https://www.researchgate.net/publication/357114489_Simultaneous_Multivariate_Forecast_of_Space_Weather_Indices_using_Deep_Neural_Network_Ensembles">Link</a>)<o:p></o:p></span></p>  
-        <p> &middot; E. Brown, S. Bonasera, <b>B. Benson</b>, J. A. Pérez-Hernández, G. Acciarini, A. G. Baydin, C. P. Bridges, M. Jin, E. Sutton and M. K. Jah,    &#8220;Learning the solar latent space: sigma-variationalautoencoders for multiple channel solar imaging,&#8221<i> in Proc. of Fourth Workshop on Machine Learning and the Physical Sciences (NeurIPS 2021)</i>, Vancouver, CA, Dec. 2021. (<a href="https://www.researchgate.net/publication/357061916_Learning_the_solar_latent_space_sigma-variational_autoencoders_for_multiple_channel_solar_imaging">Link</a>)<o:p></o:p></span></p> 
-        <p> &middot; S. Bonasera, G. Acciarini, J. A. Pérez-Hernández, <b>B. Benson</b>, E. Brown, E. Sutton, M. K. Jah, C. P. Bridges and A. G. Baydin  &#8220;Dropout and Ensemble Networksfor Thermospheric Density Uncertainty Estimation,&#8221<i> in Proc. of Bayesian Deep Learning Workshop (NeurIPS 2021)</i>, Vancouver, CA, Dec. 2021. (<a href="https://www.researchgate.net/publication/357058909_Dropout_and_Ensemble_Networks_for_Thermospheric_Density_Uncertainty_Estimation">Link</a>)<o:p></o:p></span></p>
-        <p> &middot; <b>B. Benson</b>, W. D. Pan, A. Prasad, G. A. Gary, and Q. Hu,&#8220;On the Estimation of the SHARP Parameter MEANALP from AIA Images Using Deep Neural Networks,&#8221; <i>Solar Physics</i>, vol. 296. no. 163, Nov 2021. (<a href="https://link.springer.com/epdf/10.1007/s11207-021-01912-3?sharing_token=R3omtTTQERO5jZYRXwpQSve4RwlQNchNByi7wbcMAY5Gc1O9JE4WV266TagykkTdfkeDwT92DyImzUohTfjkcVZk20Q8wjAmRz1QoLkXKeIqdf-6uCHPVuz1gYkvNYqZ_oGIhzZ057sKYePbde95SGIWeMYPSOoDQUtDSVedybs%3D">Springer Nature SharedIt Link</a>)<o:p></o:p></span></p>
-        <p> &middot; <b>B. Benson</b>, W. D. Pan, A. Prasad, G. A. Gary, and Q. Hu,&#8220;Forecasting Solar Cycle 25 Using Deep Neural Networks,&#8221; <i>Solar Physics</i>, vol. 295. no. 65, May 2020. (<a href="https://link.springer.com/epdf/10.1007/s11207-020-01634-y?sharing_token=xG6OtVKUq_VyIYQcig5-1Pe4RwlQNchNByi7wbcMAY7IJS1mHewAwN1SZOVjeQFqSsjm9HtM3_6_qI5fOs4HiReFi4qch9xjrTcfyyyReo3p2S3sEhMeozKhnoJmdf7aJWio0vL520--EtZUkXDHnbj0QUzE7CLVJHmLJQwDIKQ%3D">Springer Nature SharedIt Link</a>)<o:p></o:p></span></p>
-        <p> &middot; <b>B. Benson</b>, W. D. Pan, A. Prasad, G. A. Gary, and Q. Hu,&#8220;Determining the Parameter for the Linear Force-Free Magnetic Field Model with Multi-Dipolar Configurations Using Deep Neural Networks,&#8221; <i>In Proc. of Machine Learning in Heliophysics</i>, Amsterdam, September 2019. (<a
-href="http://www.ece.uah.edu/~dwpan/papers/slides/HELIO_ML.pdf">Poster</a>) <o:p></o:p></span></p>
-        <p> &middot; <b>B. Benson</b>, W. D. Pan, G. A. Gary, Q. Hu, and T. Staudinger, &#8220;Determining the Parameter for the Linear Force-Free Magnetic Field Model with Multi-Dipolar Conﬁgurations Using Deep Neural Networks,&#8221<i>Astronomy and Computing</i> (an Elsevier Journal), vol. 26, January 2019, pp. 50 - 60. (<a href="https://doi.org/10.1016/j.ascom.2018.11.002">Link</a>)<o:p></o:p></span></p> 
-        <p> &middot; <b>B. Benson</b>, Z. Jiang, W. D. Pan, G. A. Gary, Q. Hu, &#8220;Determination of Linear Force-Free Magnetic Field
-Constant Alpha Using Deep Learning,&#8221; <i> in Proc. of 2017 International Conference on Computational Science and Computational Intelligence (CSCI'17)</i>, Las Vegas, NV, Dec. 2017. (<a href="http://www.ece.uah.edu/~dwpan/papers/CSCI17.pdf">Link</a>) (<a
-href="http://www.ece.uah.edu/~dwpan/papers/slides/CSCI-AI2017.pdf">Slides</a>)
+        /* Adjustments for the image container within the md:flex-row layout */
+        @media (min-width: 768px) {
+            .profile-image-container {
+                height: auto; /* Allow height to adjust based on content */
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
 
-    
-          <hr>
-      
+    <div class="w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden">
+        <!-- Header Section -->
+        <header class="bg-gray-900 text-white p-6 rounded-t-lg text-center shadow-md">
+            <h1 class="text-4xl font-extrabold mb-2">Bernard Benson, PhD</h1>
+            <p class="text-lg font-light text-gray-300 mb-4">Research Scientist at NASA-IMPACT</p>
+            
+            <!-- Social Links - Horizontal line with just icons -->
+            <div class="flex justify-center gap-6 text-gray-300">
+                <a href="mailto:bernardbenson.dl@gmail.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors duration-200">
+                    <i class="fas fa-envelope text-2xl"></i>
+                    <span class="sr-only">Email</span>
+                </a>
+                <a href="https://scholar.google.com/citations?user=uiHWfLEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors duration-200">
+                    <i class="fas fa-graduation-cap text-2xl"></i>
+                    <span class="sr-only">Google Scholar</span>
+                </a>
+                <a href="https://www.linkedin.com/in/bernardvbenson/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors duration-200">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/bern2777" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors duration-200">
+                    <i class="fab fa-instagram text-2xl"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://github.com/bernardbenson" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors duration-200">
+                    <i class="fab fa-github text-2xl"></i>
+                    <span class="sr-only">GitHub</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="bg-gray-100 p-4 border-b border-gray-200 flex flex-wrap justify-center gap-2 sm:gap-4">
+            <button class="tab-button px-4 py-2 rounded-lg border border-transparent transition-all duration-300 hover:border-gray-400 hover:bg-gray-200 focus:outline-none" data-tab="about">
+                About Me
+            </button>
+            <button class="tab-button px-4 py-2 rounded-lg border border-transparent transition-all duration-300 hover:border-gray-400 hover:bg-gray-200 focus:outline-none" data-tab="publications">
+                Publications
+            </button>
+            <button class="tab-button px-4 py-2 rounded-lg border border-transparent transition-all duration-300 hover:border-gray-400 hover:bg-gray-200 focus:outline-none" data-tab="experience">
+                Experience
+            </button>
+            <button class="tab-button px-4 py-2 rounded-lg border border-transparent transition-all duration-300 hover:border-gray-400 hover:bg-gray-200 focus:outline-none" data-tab="education">
+                Education
+            </button>
+            <!-- Blog Tab -->
+            <button class="tab-button px-4 py-2 rounded-lg border border-transparent transition-all duration-300 hover:border-gray-400 hover:bg-gray-200 focus:outline-none" data-tab="blog">
+                Blog
+            </button>
+        </nav>
+
+        <!-- Content Sections -->
+        <div class="p-6">
+            <!-- About Me Section -->
+            <section id="about" class="tab-content active">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+
+                <div class="flex flex-col md:flex-row md:space-x-8">
+                    <!-- Left Column: Profile Picture -->
+                    <div class="md:w-1/3 mb-6 md:mb-0">
+                        <div class="profile-image-container rounded-lg shadow-md">
+                            <img src="./bernard.jpg" alt="Bernard Benson Profile Picture" class="rounded-lg">
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Contact, About, Research Interests -->
+                    <div class="md:w-2/3 prose max-w-none">
+                        <!-- General Contact Info -->
+                        <div class="mb-6 space-y-2 text-gray-700">
+
+                        <p class="mb-4">I am a Research Scientist with over five years of academic research and applied ML experience. You can find my full <a href="./resume_bernard.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">resume/CV here</a>.</p>
+
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Research Interests</h3>
+                        <ul class="list-disc list-inside space-y-1 mb-4">
+                            <li>Image Processing</li>
+                            <li>Signal Processing</li>
+                            <li>Machine Learning</li>
+                            <li>Deep Neural Networks</li>
+                            <li>Solar Physics</li>
+                            <li>Space Weather</li>
+                            <li>Transportation</li>
+                            <li>Operations Research</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Publications</h2>
+                <div class="prose max-w-none text-gray-700">
+                    <p class="mb-2"> &bull; T. Singh, <b>B. Benson</b>, S. Raza, T. Kim, N. Pogorelov, W.P. Smith, C.N. Arge “Improving the Arrival Time Estimates of Coronal Mass Ejections by Using Magnetohydrodynamic Ensemble Modeling, Heliospheric Imager data, and Machine Learning”, <i> Astro Physical Journal (ApJ)</i>, February. 2023. (<a href="https://iopscience.iop.org/article/10.3847/1538-4357/acc10a/meta" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>)</p>
+                    <p class="mb-2"> &bull; R. Hooda, W. D. Pan and <b>B. Benson</b>, “Transform Decomposition Switching for Efficient Attribute Compression of 3D Point Clouds Using Neural Networks”, <i> in Proc. of 2022 International Conference on Computational Science and Computational Intelligence (CSCI'22)</i>, Las Vegas, NV, Dec. 2022. (<a href="https://reetuhooda.github.io/webpage/files/CSCI_V6.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>) (<a href="https://american-cse.org/csci2022-ieee/pdfs/CSCI2022-2lPzsUSRQukMlxf8K2x89I/202800b410/202800b410.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Slides</a>)</p>
+                    <p class="mb-2"> &bull; T. Singh, <b>B. Benson</b>, S. Raza, T. Kim, N. Pogorelov, “Improving the Arrival Time Prediction of Coronal Mass Ejections using Magnetohydrodynamic Ensemble Modeling, Heliospheric Imager data and Machine Learning”, <i> in Proc. of 2022 EGU General Assembly Conference Abstracts (EGU'22)</i>, Vienna, Austria, May. 2022. (<a href="https://meetingorganizer.copernicus.org/EGU22/EGU22-13167.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>)</p>
+                    <p class="mb-2"> &bull; <b>B. Benson</b>, E. Brown, S. Bonasera, G. Acciarini, J. A. Pérez-Hernández, E. Sutton, M. K. Jah, C. P. Bridges, M. Jin and A. G. Baydin “Simultaneous Multivariate Forecast of Space WeatherIndices using Deep Neural Network Ensembles,”<i> in Proc. of Fourth Workshop on Machine Learning and the Physical Sciences (NeurIPS 2021)</i>, Vancouver, CA, Dec. 2021. (<a href="https://www.researchgate.net/publication/357114489_Simultaneous_Multivariate_Forecast_of_Space_Weather_Indices_using_Deep_Neural_Network_Ensembles" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>)</p>
+                    <p class="mb-2"> &bull; E. Brown, S. Bonasera, <b>B. Benson</b>, J. A. Pérez-Hernández, G. Acciarini, A. G. Baydin, C. P. Bridges, M. Jin, E. Sutton and M. K. Jah, “Learning the solar latent space: sigma-variationalautoencoders for multiple channel solar imaging,”<i> in Proc. of Fourth Workshop on Machine Learning and the Physical Sciences (NeurIPS 2021)</i>, Vancouver, CA, Dec. 2021. (<a href="https://www.researchgate.net/publication/357061916_Learning_the_solar_latent_space_sigma-variational_autoencoders_for_multiple_channel_solar_imaging" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>)</p>
+                    <p class="mb-2"> &bull; S. Bonasera, G. Acciarini, J. A. Pérez-Hernández, <b>B. Benson</b>, E. Brown, E. Sutton, M. K. Jah, C. P. Bridges and A. G. Baydin “Dropout and Ensemble Networksfor Thermospheric Density Uncertainty Estimation,”<i> in Proc. of Bayesian Deep Learning Workshop (NeurIPS 2021)</i>, Vancouver, CA, Dec. 2021. (<a href="https://www.researchgate.net/publication/357058909_Dropout_and_Ensemble_Networks_for_Thermospheric_Density_Uncertainty_Estimation" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>)</p>
+                    <p class="mb-2"> &bull; <b>B. Benson</b>, W. D. Pan, A. Prasad, G. A. Gary, and Q. Hu,“On the Estimation of the SHARP Parameter MEANALP from AIA Images Using Deep Neural Networks,” <i>Solar Physics</i>, vol. 296. no. 163, Nov 2021. (<a href="https://link.springer.com/epdf/10.1007/s11207-021-01912-3?sharing_token=R3omtTTQERO5jZYRXwpQSve4RwlQNchNByi7wbcMAY5Gc1O9JE4WV266TagykkTdfkeDwT92DyImzUohTfjkcVZk20Q8wjAmRz1QoLkXKeIqdf-6uCHPVuz1gYkvNYqZ_oGIhzZ057sKYePbde95SGIWeMYPSOoDQUtDSVedybs%3D" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Springer Nature SharedIt Link</a>)</p>
+                    <p class="mb-2"> &bull; <b>B. Benson</b>, W. D. Pan, A. Prasad, G. A. Gary, and Q. Hu,“Forecasting Solar Cycle 25 Using Deep Neural Networks,” <i>Solar Physics</i>, vol. 295. no. 65, May 2020. (<a href="https://link.springer.com/epdf/10.1007/s11207-020-01634-y?sharing_token=xG6OtVKUq_VyIYQcig5-1Pe4RwlQNchNByi7wbcMAY7IJS1mHewAwN1SZOVjeQFqSsjm9HtM3_6_qI5fOs4HiReFi4qch9xjrTcfyyyReo3p2S3sEhMeozKhnoJmdf7aJWio0vL520--EtZUkXDHnbj0QUzE7CLVJHmLJQwDIKQ%3D" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Springer Nature SharedIt Link</a>)</p>
+                    <p class="mb-2"> &bull; <b>B. Benson</b>, W. D. Pan, A. Prasad, G. A. Gary, and Q. Hu,“Determining the Parameter for the Linear Force-Free Magnetic Field Model with Multi-Dipolar Configurations Using Deep Neural Networks,” <i>In Proc. of Machine Learning in Heliophysics</i>, Amsterdam, September 2019. (<a href="http://www.ece.uah.edu/~dwpan/papers/slides/HELIO_ML.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Poster</a>)</p>
+                    <p class="mb-2"> &bull; <b>B. Benson</b>, W. D. Pan, G. A. Gary, Q. Hu, and T. Staudinger, “Determining the Parameter for the Linear Force-Free Magnetic Field Model with Multi-Dipolar Configurations Using Deep Neural Networks,”<i>Astronomy and Computing</i> (an Elsevier Journal), vol. 26, January 2019, pp. 50 - 60. (<a href="https://doi.org/10.1016/j.ascom.2018.11.002" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>)</p>
+                    <p class="mb-2"> &bull; <b>B. Benson</b>, Z. Jiang, W. D. Pan, G. A. Gary, Q. Hu, “Determination of Linear Force-Free Magnetic FieldConstant Alpha Using Deep Learning,” <i> in Proc. of 2017 International Conference on Computational Science and Computational Intelligence (CSCI'17)</i>, Las Vegas, NV, Dec. 2017. (<a href="http://www.ece.uah.edu/~dwpan/papers/CSCI17.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Link</a>) (<a href="http://www.ece.uah.edu/~dwpan/papers/slides/CSCI-AI2017.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Slides</a>)</p>
+                </div>
+            </section>
+
+            <!-- Work Experience Section -->
+            <section id="experience" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Work Experience</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Research Scientist IV - NASA-IMPACT, UAH, Huntsville, AL</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="fas fa-calendar-alt w-4 mr-1"></i>May 2025 - Present</p>
+                        <p class="text-gray-700">Working on a team to index and create a search engine from NASA Science data.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">AI Solutions Architect - Megansoft, Remote</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="fas fa-calendar-alt w-4 mr-1"></i>Dec 2024 - May 2025</p>
+                        <p class="text-gray-700">Developed an evaluation framework for generative AI chatbots and RAG systems using DeepEval and Ragas.</p>
+                        <p class="text-gray-700">Designed and implemented recommender systems for pharmacy benefits management.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Data Scientist - McLeod Software, Birmingham, AL</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="fas fa-calendar-alt w-4 mr-1"></i>Aug 2021 - Nov 2024</p>
+                        <p class="text-gray-700">Conducted market and applications research on AI services in transportation and logistics.</p>
+                        <p class="text-gray-700">Conference speaker on behalf of McLeod Software at various Transportation-related events and conferences.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Applied ML Researcher - NASA Frontier Development Lab</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="fas fa-calendar-alt w-4 mr-1"></i>Jun 2021 - Aug 2021</p>
+                        <p class="text-gray-700">Applied machine learning techniques to analyze and model the impact of solar drag on satellite orbits as part of a NASA-sponsored research project.</p>
+                        <p class="text-gray-700">Developed a sophisticated multivariate time series model based on deep neural network ensembles to accurately predict space weather indices, including F10.7 cm radio flux and geomagnetic indices like ap and Kp.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Graduate Teaching Assistant - The University of Alabama in Huntsville</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="fas fa-calendar-alt w-4 mr-1"></i>August 2016 - May 2021</p>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>CPE 211L: Introduction to Computer Programming in Engineering</li>
+                            <li>EE 316: Electrical Circuits and Electronics Design Lab</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">RF Engineer - Nexgen Wireless, PCTEL, GTA</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="fas fa-calendar-alt w-4 mr-1"></i>Mar 2013 - Mar 2016</p>
+                        <p class="text-gray-700">RF Optimization and Design Engineer for Sprint 4G LTE Networks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Education</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">The University of Alabama in Huntsville</h3>
+                        <p class="text-gray-700">Ph.D. in Electrical and Computer Engineering</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">The University of Alabama in Huntsville</h3>
+                        <p class="text-700">Master of Science in Electrical and Computer Engineering</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Geethanjali College of Engineering and Technology (JNTU)</h3>
+                        <p class="text-gray-700">Bachelor of Technology in Electrical and Electronics Engineering</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Blog</h2>
+                <div class="prose max-w-none">
+                    <p class="mb-4">This section is designed to host your blog content. You can update this directly via GitHub Pages by editing this HTML file or by embedding content from another source.</p>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">First Post Title (Example)</h3>
+                    <p class="text-gray-600 text-sm mb-2">Published on: June 25, 2025</p>
+                    <p class="mb-4">Welcome to my first blog post! Here I'll share insights, tutorials, and updates on my projects and experiences. Stay tuned for more content!</p>
+                    <a href="#" class="text-blue-600 hover:underline">Read more...</a>
+                    <hr class="my-6 border-gray-300">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Upcoming Project Sneak Peek</h3>
+                    <p class="text-gray-600 text-sm mb-2">Published on: June 20, 2025</p>
+                    <p class="mb-4">Excited to share a sneak peek into an upcoming project focusing on machine learning applications. More details will be revealed soon!</p>
+                    <a href="#" class="text-blue-600 hover:underline">Read more...</a>
+                    <!-- You can add more blog posts here -->
+                </div>
+            </section>
         </div>
-      </div>
-   
-   
-   <div class="w3-twothird">
-    
-      <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-        <h2 class="w3-text-black w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Work Experience</h2>
-      
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b>Research Scientist IV - NASA-IMPACT, UAH, Huntsville, AL</b></h5>
-          <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>May 2025 - Present</h6>
-          <p>Working on a team to index and create a search engine from NASA Sciene data.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b>AI Solutions Architect - Megansoft, Remote</b></h5>
-          <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Dec 2024 - May 2025</h6>
-          <p>Developed an evaluation framework for generative AI chatbots and RAG systems using DeepEval and Ragas.</p>
-          <p>Designed and implemented recommender systems for pharmacy benefits management.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b>Data Scientist - McLeod Software, Birmingham, AL</b></h5>
-          <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Aug 2021 - Nov 2024</h6>
-          <p>Conducted market and applications research on AI services in transportation and logistics</p>
-          <p>Conference speaker on behalf of McLeod Software at various Transportation-related events and conferences.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b> Applied ML Researcher - NASA Frontier Development Lab</b></h5>
-          <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2021 - Aug 2021</h6>
-          <p>Applied machine learning techniques to analyze and model the impact of solar drag on satellite orbits as part of
-              a NASA-sponsored research project</p>
-          <p> Developed a sophisticated multivariate time series model based on deep neural network ensembles to accurately
-              predict space weather indices, including F10.7 cm radio flux and geomagnetic indices like ap and Kp. </p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b>Graduate Teaching Assistant</b></h5>
-          <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>August 2016 - May 2021</h6>
-          <p>CPE 211L: Introduction to Computer Programming in Engineering</p>
-          <p> EE  316: Electrical Circuits and Electronics Design Lab</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b>RF Engineer - Nexgen Wireless, PCTEL, GTA</b></h5>
-          <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2013 - Mar 2016</h6>
-          <p>RF Optimization and Design Engineer for Sprint 4G LTE Networks</p>
-          <hr>
-        </div>
-       
-      </div>
- 
-      <div class="w3-container w3-card-2 w3-white">
-        <h2 class="w3-text-black w3-padding-16"><i class="fa fa-university fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Education</h2>
-        <div class="w3-container">
-          
-      </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b> <a href="http://www.uah.edu/eng/departments/ece">The University of Alabama in Huntsville</a></b></h5>
-         <!-- <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2021 </h6> -->
-          <p>Ph.D. in Electrical and Computer Engineering</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b><a href="http://www.uah.edu/eng/departments/ece">The University of Alabama in Huntsville</a></b></h5>
-          <!-- <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i></h6> -->
-          <p>Master of Science in Electrical and Computer Engineering</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-text-black"><b><a href="http://www.geethanjaliinstitutions.com/engineering/eee.html">Geethanjali College of Engineering and Technology (JNTU)</a></b></h5>
-          <!-- <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i></h6> -->
-          <p>Bachelor of Technology in Electrical and Electronics Engineering</p><br>
-        </div>
-      </div>
- 
-    <!-- End Right Column -->
     </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
- 
-  
-<footer class="w3-container w3-black w3-center w3-margin-top">
-  <p>
-  <p> Find me on Linked <a href="https://www.linkedin.com/in/bernardvbenson/"><i class="fa fa-linkedin w3-xlarge w3-hover-opacity"></i>
-</footer>
- 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Function to show a specific tab and hide others
+            const showTab = (tabId) => {
+                tabContents.forEach(content => {
+                    if (content.id === tabId) {
+                        content.classList.remove('hidden');
+                        content.classList.add('active'); // Add active class to content for potential future styling
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('active');
+                    }
+                });
+
+                tabButtons.forEach(button => {
+                    if (button.dataset.tab === tabId) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+            };
+
+            // Event listener for tab clicks
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+                    if (tabId) { // Ensure it's a content tab and not an external link
+                        showTab(tabId);
+                    }
+                });
+            });
+
+            // Set the default active tab (e.g., 'about')
+            showTab('about');
+        });
+    </script>
 </body>
 </html>
- 
- 
