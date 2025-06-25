@@ -52,6 +52,14 @@
             border-radius: 0.5rem; /* Apply rounded corners to the image itself */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
         }
+        /* Additional styling for footer logos */
+        /* Removed grayscale filter to display logos in full color */
+        .company-logo {
+            transition: filter 0.3s ease-in-out; /* Smooth transition for hover effect */
+        }
+        .company-logo:hover {
+            /* No grayscale filter on hover, so it remains in full color */
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
@@ -62,7 +70,7 @@
             <!-- Responsive font sizes for the name and title -->
             <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Bernard Benson, PhD</h1>
             <p class="text-base sm:text-lg font-light text-gray-300 mb-4">Research Scientist at NASA-IMPACT</p>
-            
+
             <!-- Social Links - Horizontal line with just icons -->
             <div class="flex justify-center gap-4 sm:gap-6 text-gray-300">
                 <a href="mailto:bernardbenson.dl@gmail.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors duration-200">
@@ -241,6 +249,22 @@
             </section>
         </div>
     </div>
+
+    <!-- Footer Section with Company Logos -->
+    <footer class="w-full max-w-4xl bg-gray-900 text-white p-6 mt-8 rounded-lg shadow-xl text-center">
+        <h3 class="text-lg font-semibold mb-4">Organizations I've Worked With:</h3>
+        <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
+            <!-- Replace 'path/to/your/logo.png' with your actual local image paths -->
+            <img src="./nasa-logo.png" alt="NASA-IMPACT Logo" class="h-10 company-logo">
+            <img src="./megansof-logo.jpeg" alt="Megansoft Logo" class="h-10 company-logo">
+            <img src="./mcleod-logo.jpg" alt="McLeod Software Logo" class="h-10 company-logo">
+            <img src="./fdl-logo.png" alt="NASA Frontier Development Lab Logo" class="h-10 company-logo">
+            <img src="./uah-logo.svg" alt="University of Alabama in Huntsville Logo" class="h-10 company-logo">
+            <img src="./nexgen-wireless-logo-2.jpg" alt="Nexgen Wireless Logo" class="h-10 company-logo">
+            <img src="./gta-logo.jpg" alt="GTA Logo" class="h-10 company-logo">
+        </div>
+        <p class="mt-6 text-sm text-gray-400">&copy; 2025 Bernard Benson. All rights reserved.</p>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
