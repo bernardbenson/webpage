@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Research Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: rgba(33, 33, 33, 1);
+            background-color: rgba(255, 255, 255, 1);
+            line-height: 1.4;
+        }
+        
+        /* Header with background image */
+        .header-container {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .header-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .header-content p {
+            font-size: 24px;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Navigation */
+        .nav-container {
+            background: rgba(255, 255, 255, 1);
+            border-bottom: 1px solid rgba(218, 220, 224, 1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+        }
+        
+        .nav-item {
+            flex-shrink: 0;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 16px 24px;
+            color: rgba(33, 33, 33, 1);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: rgba(24, 96, 142, 1);
+            border-bottom-color: rgba(24, 96, 142, 1);
+            background-color: rgba(248, 249, 250, 1);
+        }
+        
+        /* Main content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+        
+        .section {
+            margin-bottom: 48px;
+        }
+        
+        .section.hidden {
+            display: none;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: rgba(24, 96, 142, 1);
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(218, 220, 224, 1);
+        }
+        
+        /* Welcome section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .welcome-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(33, 33, 33, 1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Research topics grid */
+        .research-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .topic-card {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(218, 220, 224, 1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        
+        .topic-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .topic-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, rgba(24, 96, 142, 0.8), rgba(24, 96, 142, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .topic-content {
+            padding: 16px;
+        }
+        
+        .topic-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(24, 96, 142, 1);
+            margin-bottom: 8px;
+        }
+        
+        .topic-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(33, 33, 33, 1);
+        }
+        
+        /* News section */
+        .news-list {
+            max-width: 800px;
+        }
+        
+        .news-item {
+            display: flex;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(218, 220, 224, 1);
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-date {
+            flex-shrink: 0;
+            width: 120px;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(24, 96, 142, 1);
+        }
+        
+        .news-content {
+            flex: 1;
+            font-size: 16px;
+            line-height: 1.5;
+            color: rgba(33, 33, 33, 1);
+        }
+        
+        .news-content strong {
+            font-weight: 600;
+        }
+        
+        /* Publications */
+        .publication-item {
+            margin-bottom: 16px;
+            padding: 16px;
+            background: rgba(248, 249, 250, 1);
+            border-left: 4px solid rgba(24, 96, 142, 1);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .publication-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .publication-item a {
+            color: rgba(24, 96, 142, 1);
+            text-decoration: none;
+        }
+        
+        .publication-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Team grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 24px;
+            background: rgba(248, 249, 250, 1);
+            border-radius: 8px;
+            border: 1px solid rgba(218, 220, 224, 1);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(24, 96, 142, 1);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .member-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(33, 33, 33, 1);
+            margin-bottom: 8px;
+        }
+        
+        .member-role {
+            font-size: 14px;
+            color: rgba(95, 99, 104, 1);
+            margin-bottom: 8px;
+        }
+        
+        .member-bio {
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(33, 33, 33, 1);
+        }
+        
+        /* Contact section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 32px 0;
+        }
+        
+        .contact-card {
+            padding: 24px;
+            background: rgba(248, 249, 250, 1);
+            border-radius: 8px;
+            border: 1px solid rgba(218, 220, 224, 1);
+        }
+        
+        .contact-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(24, 96, 142, 1);
+            margin-bottom: 16px;
+        }
+        
+        .contact-card p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .contact-card a {
+            color: rgba(24, 96, 142, 1);
+            text-decoration: none;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 36px;
+            }
+            
+            .header-content p {
+                font-size: 18px;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+            }
+            
+            .nav-link {
+                padding: 12px 24px;
+            }
+            
+            .main-container {
+                padding: 24px 16px;
+            }
+            
+            .research-topics {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-item {
+                flex-direction: column;
+            }
+            
+            .news-date {
+                width: auto;
+                margin-bottom: 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                height: 300px;
+            }
+            
+            .header-content h1 {
+                font-size: 28px;
+            }
+            
+            .header-content p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with background image -->
+    <div class="header-container">
+        <div class="header-content">
+            <h1>Your Research Lab</h1>
+            <p>Department of Computer Science, Your University</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="#research" class="nav-link">Research</a></li>
+                <li class="nav-item"><a href="#publications" class="nav-link">Publications</a></li>
+                <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="#teaching" class="nav-link">Teaching</a></li>
+                <li class="nav-item"><a href="#resources" class="nav-link">Other Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-container">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="welcome-section">
+                <p class="welcome-text">
+                    Welcome to our research lab! We are dedicated to advancing the frontiers of computer science through innovative research in machine learning, artificial intelligence, and computational methods. Our team of researchers and students work collaboratively to address complex challenges and develop cutting-edge solutions.
+                </p>
+            </div>
+
+            <h2 class="section-title">Research Topics</h2>
+            <div class="research-topics">
+                <div class="topic-card">
+                    <div class="topic-image">🤖</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Machine Learning</h3>
+                        <p class="topic-description">Developing advanced machine learning algorithms and applications for real-world problems including deep learning, reinforcement learning, and neural networks.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">🧠</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Artificial Intelligence</h3>
+                        <p class="topic-description">Exploring AI methodologies including natural language processing, computer vision, and intelligent systems design.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">📊</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Data Science</h3>
+                        <p class="topic-description">Analyzing large-scale datasets to extract meaningful insights and patterns using statistical methods and computational techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">🔬</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Computational Biology</h3>
+                        <p class="topic-description">Applying computational methods to biological problems including genomics, proteomics, and bioinformatics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Recent Group News</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-date">Jan 2024</div>
+                    <div class="news-content"><strong>Paper Accepted:</strong> Our work on deep learning applications has been accepted to ICML 2024.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Dec 2023</div>
+                    <div class="news-content"><strong>Award:</strong> Dr. [Name] received the Best Paper Award at NeurIPS 2023.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Nov 2023</div>
+                    <div class="news-content"><strong>Grant Funded:</strong> NSF grant for $500K awarded for our AI research project.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Oct 2023</div>
+                    <div class="news-content"><strong>New Team Member:</strong> Welcome to our new PhD student, [Name], joining our machine learning team.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Sep 2023</div>
+                    <div class="news-content"><strong>Conference Presentation:</strong> Presented our latest research findings at ICCV 2023 in Paris.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="section hidden">
+            <h2 class="section-title">News</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-date">Jan 2024</div>
+                    <div class="news-content"><strong>Paper Accepted:</strong> Our work on deep learning applications has been accepted to ICML 2024.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Dec 2023</div>
+                    <div class="news-content"><strong>Award:</strong> Dr. [Name] received the Best Paper Award at NeurIPS 2023.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Nov 2023</div>
+                    <div class="news-content"><strong>Grant Funded:</strong> NSF grant for $500K awarded for our AI research project.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Oct 2023</div>
+                    <div class="news-content"><strong>New Team Member:</strong> Welcome to our new PhD student, [Name], joining our machine learning team.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Sep 2023</div>
+                    <div class="news-content"><strong>Conference Presentation:</strong> Presented our latest research findings at ICCV 2023 in Paris.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Aug 2023</div>
+                    <div class="news-content"><strong>Workshop Organized:</strong> Successfully organized the International Workshop on AI Applications.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Jul 2023</div>
+                    <div class="news-content"><strong>Collaboration:</strong> Started new collaboration with industry partner on computer vision project.</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">Jun 2023</div>
+                    <div class="news-content"><strong>Publication:</strong> New paper published in Nature Machine Intelligence on neural network interpretability.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section hidden">
+            <h2 class="section-title">Research</h2>
+            <div class="research-topics">
+                <div class="topic-card">
+                    <div class="topic-image">🤖</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Machine Learning</h3>
+                        <p class="topic-description">Our research focuses on developing novel machine learning algorithms including deep neural networks, reinforcement learning, and transfer learning. We work on both theoretical foundations and practical applications across various domains.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">🧠</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Artificial Intelligence</h3>
+                        <p class="topic-description">We explore advanced AI methodologies including natural language processing, computer vision, robotics, and intelligent systems. Our goal is to create AI systems that can understand and interact with the world more effectively.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">📊</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Data Science</h3>
+                        <p class="topic-description">We develop innovative approaches for analyzing large-scale, complex datasets. Our research includes statistical modeling, data mining, visualization techniques, and distributed computing systems.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">🔬</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Computational Biology</h3>
+                        <p class="topic-description">Applying computational and mathematical methods to biological problems. We work on genomics, proteomics, drug discovery, and personalized medicine using advanced computational techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">🏥</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Healthcare AI</h3>
+                        <p class="topic-description">Developing AI solutions for healthcare applications including medical image analysis, diagnostic systems, treatment recommendation, and electronic health record analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-image">🚗</div>
+                    <div class="topic-content">
+                        <h3 class="topic-title">Autonomous Systems</h3>
+                        <p class="topic-description">Research in autonomous vehicles, drones, and robotic systems. We focus on perception, planning, control, and safety aspects of autonomous systems in complex environments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section hidden">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="publication-item">
+                <p><strong>Smith, J.</strong>, Johnson, A., Brown, M. "Advanced Deep Learning Techniques for Computer Vision Applications." <em>Nature Machine Intelligence</em>, vol. 5, no. 2, pp. 123-145, 2024. <a href="#" target="_blank">[PDF]</a> <a href="#" target="_blank">[Code]</a></p>
+            </div>
+            
+            <div class="publication-item">
+                <p>Johnson, A., <strong>Smith, J.</strong>, Davis, K. "Reinforcement Learning for Autonomous Systems Navigation." <em>Proceedings of ICML 2024</em>, Vienna, Austria, pp. 45-60, 2024. <a href="#" target="_blank">[PDF]</a></p>
+            </div>
+            
+            <div class="publication-item">
+                <p><strong>Smith, J.</strong>, Wilson, L., Taylor, R. "Neural Network Interpretability in Healthcare Applications." <em>Journal of Artificial Intelligence Research</em>, vol. 72, pp. 289-315, 2023. <a href="#" target="_blank">[PDF]</a></p>
+            </div>
+            
+            <div class="publication-item">
+                <p>Brown, M., <strong>Smith, J.</strong>, Anderson, P. "Large-Scale Data Analysis Using Distributed Computing." <em>Proceedings of NeurIPS 2023</em>, New Orleans, USA, pp. 1234-1248, 2023. <a href="#" target="_blank">[PDF]</a> <a href="#" target="_blank">[Poster]</a></p>
+            </div>
+            
+            <div class="publication-item">
+                <p><strong>Smith, J.</strong>, Garcia, C., Kim, S. "Computational Methods for Genomic Analysis." <em>Bioinformatics</em>, vol. 39, no. 15, pp. 2456-2470, 2023. <a href="#" target="_blank">[PDF]</a></p>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section hidden">
+            <h2 class="section-title">Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">👨‍🔬</div>
+                    <div class="member-name">Dr. John Smith</div>
+                    <div class="member-role">Principal Investigator</div>
+                    <div class="member-bio">Professor of Computer Science with expertise in machine learning and artificial intelligence. PhD from MIT, 15+ years of research experience.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👩‍💻</div>
+                    <div class="member-name">Alice Johnson</div>
+                    <div class="member-role">PhD Student</div>
+                    <div class="member-bio">Working on deep learning applications in computer vision. MS in Computer Science from Stanford University.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👨‍💻</div>
+                    <div class="member-name">Michael Brown</div>
+                    <div class="member-role">PhD Student</div>
+                    <div class="member-bio">Researching reinforcement learning and autonomous systems. BS in Electrical Engineering from UC Berkeley.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👩‍🔬</div>
+                    <div class="member-name">Sarah Davis</div>
+                    <div class="member-role">Postdoctoral Researcher</div>
+                    <div class="member-bio">Specialist in computational biology and bioinformatics. PhD in Computational Biology from Harvard University.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👨‍🎓</div>
+                    <div class="member-name">David Wilson</div>
+                    <div class="member-role">MS Student</div>
+                    <div class="member-bio">Working on natural language processing and text analysis. BS in Computer Science from UCLA.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👩‍🎓</div>
+                    <div class="member-name">Emily Taylor</div>
+                    <div class="member-role">MS Student</div>
+                    <div class="member-bio">Researching healthcare AI and medical image analysis. BS in Biomedical Engineering from Johns Hopkins.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching" class="section hidden">
+            <h2 class="section-title">Teaching</h2>
+            
+            <div class="topic-card">
+                <div class="topic-content">
+                    <h3 class="topic-title">CS 101: Introduction to Computer Science</h3>
+                    <p class="topic-description">Fundamental concepts in computer science including programming, algorithms, and data structures. Taught using Python programming language.</p>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <div class="topic-content">
+                    <h3 class="topic-title">CS 485: Machine Learning</h3>
+                    <p class="topic-description">Advanced course covering machine learning algorithms, deep learning, and practical applications. Includes hands-on projects and research assignments.</p>
+                </div>
+            </div>
+            
+            <div class="topic-card">
+                <div class="topic-content">
+                    <h3 class="topic-title">CS 520: Artificial Intelligence</h3>
+                    <p class="topic-description">Graduate-level course exploring AI methodologies including search algorithms, knowledge representation, and intelligent agents.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section hidden">
+            <h2 class="section-title">Other Resources</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Software & Tools</h3>
+                    <p><a href="#" target="_blank">ML Toolkit</a> - Our open-source machine learning library</p>
+                    <p><a href="#" target="_blank">Data Analysis Suite</a> - Tools for large-scale data processing</p>
+                    <p><a href="#" target="_blank">Visualization Framework</a> - Interactive data visualization tools</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Datasets</h3>
+                    <p><a href="#" target="_blank">Research Dataset 1</a> - Computer vision benchmark dataset</p>
+                    <p><a href="#" target="_blank">Research Dataset 2</a> - Natural language processing corpus</p>
+                    <p><a href="#" target="_blank">Research Dataset 3</a> - Biomedical data collection</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Collaborations</h3>
+                    <p><a href="#" target="_blank">Industry Partners</a> - Information about our industry collaborations</p>
+                    <p><a href="#" target="_blank">Academic Networks</a> - Research collaborations with other institutions</p>
+                    <p><a href="#" target="_blank">International Projects</a> - Global research initiatives</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            function showSection(targetId) {
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+            
+            // Show home section by default
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
