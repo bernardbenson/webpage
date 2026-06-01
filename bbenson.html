@@ -75,10 +75,20 @@
         }
         .logos img { height: 2.4rem; width: auto; filter: grayscale(100%) opacity(0.75); transition: filter .3s ease; }
         .logos img:hover { filter: grayscale(0%) opacity(1); }
-        /* keep the UAH logo at its true colour (blue in light, white in dark) */
-        .logos .uah img { filter: opacity(0.85); }
-        .logos .uah:hover img { filter: opacity(1); }
         .colophon p { font-size: 1.1rem; color: #5a5a52; }
+
+        /* Tufte hides margin notes on narrow screens; the portrait should
+           still show, so reveal it inline above the intro on phones. */
+        @media (max-width: 760px) {
+            .portrait.marginnote {
+                display: block;
+                float: none;
+                clear: both;
+                width: 60%;
+                max-width: 240px;
+                margin: 0 0 1.4rem 0;
+            }
+        }
     </style>
 </head>
 <body>
