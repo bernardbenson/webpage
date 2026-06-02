@@ -14,6 +14,18 @@
         /* ---- Tufte-flavoured customisations ---- */
         body { counter-reset: sidenote-counter; }
 
+        /* This site is light-mode only. Tufte CSS ships a dark theme that kicks
+           in with the OS preference; override it so the page always stays light. */
+        :root { color-scheme: light; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #fffff8; color: #111; }
+            a:link, .tufte-underline, .hover-tufte-underline:hover {
+                text-shadow: .03em 0 #fffff8, -.03em 0 #fffff8, .06em 0 #fffff8, -.06em 0 #fffff8,
+                             .09em 0 #fffff8, -.09em 0 #fffff8, .12em 0 #fffff8, -.12em 0 #fffff8,
+                             .15em 0 #fffff8, -.15em 0 #fffff8, 0 .03em #fffff8, 0 -.03em #fffff8;
+            }
+        }
+
         /* keep the whole document comfortably narrow, like the tufte-blog */
         article { padding: 4rem 0 2rem 0; }
 
@@ -78,16 +90,6 @@
         /* logos that ship with a white background: dissolve the white into the
            cream page so they read as neutral rather than as white boxes. */
         .logos img.onwhite { mix-blend-mode: multiply; }
-        @media (prefers-color-scheme: dark) {
-            /* multiply would erase them on the dark page, so seat them on a
-               quiet light chip instead. */
-            .logos img.onwhite {
-                mix-blend-mode: normal;
-                background: #e8e6df;
-                padding: 0.2rem 0.35rem;
-                border-radius: 4px;
-            }
-        }
         .colophon p { font-size: 1.1rem; color: #5a5a52; }
 
         /* Tufte hides margin notes on narrow screens; the portrait should
@@ -141,11 +143,7 @@
         <p>Organizations I&rsquo;ve worked with:</p>
         <div class="logos">
             <img src="./nasa-logo.png" alt="NASA-ODSI">
-            <picture class="uah">
-                <!-- white logo for dark mode; blue logo otherwise (light mode) -->
-                <source srcset="./uah-logo.png" media="(prefers-color-scheme: dark)">
-                <img src="./uah-logo-blue.png" alt="University of Alabama in Huntsville">
-            </picture>
+            <img src="./uah-logo-blue.png" alt="University of Alabama in Huntsville">
             <img class="onwhite" src="./megansof-logo.jpeg" alt="Megansoft">
             <img class="onwhite" src="./mcleod-logo.jpg" alt="McLeod Software">
             <img src="./fdl-logo.png" alt="NASA Frontier Development Lab">
