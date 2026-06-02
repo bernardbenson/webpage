@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Force light rendering everywhere; "only light" opts out of mobile
+         browsers' automatic dark-mode darkening (Chrome Android, etc.). -->
+    <meta name="color-scheme" content="light only">
     <title>Bernard Benson, PhD</title>
 
     <!-- Tufte CSS + ET Book typeface (Edward Tufte's design language) -->
@@ -15,8 +18,11 @@
         body { counter-reset: sidenote-counter; }
 
         /* This site is light-mode only. Tufte CSS ships a dark theme that kicks
-           in with the OS preference; override it so the page always stays light. */
-        :root { color-scheme: light; }
+           in with the OS preference; override it so the page always stays light.
+           "only light" also stops mobile browsers from algorithmically darkening
+           the page (Chrome Android's "Darken websites", Samsung Internet, etc.),
+           which ignores the prefers-color-scheme override below. */
+        :root, html { color-scheme: only light; }
         @media (prefers-color-scheme: dark) {
             body { background-color: #fffff8; color: #111; }
             a:link, .tufte-underline, .hover-tufte-underline:hover {
