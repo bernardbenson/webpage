@@ -4,17 +4,17 @@ This guide explains how to add a blog section to your personal website hosted on
 
 ## Current Status
 
-The blog section in `bbenson.html` has been commented out to hide it from the live site. To enable blogging, you have several options:
+The blog section in `index.html` has been commented out to hide it from the live site. To enable blogging, you have several options:
 
 ## Option 1: Simple HTML Blog (Easiest)
 
 ### Step 1: Enable the Blog Section
-Uncomment the blog tab button and section in `bbenson.html`:
+Uncomment the blog tab button and section in `index.html`:
 - Lines 114-116: Uncomment the blog tab button
 - Lines 243-258: Uncomment the entire blog section
 
 ### Step 2: Add Blog Posts
-Edit the blog section directly in `bbenson.html` by adding new posts in this format:
+Edit the blog section directly in `index.html` by adding new posts in this format:
 
 ```html
 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">Your Post Title</h3>
@@ -38,7 +38,7 @@ Create a `posts/` directory and add individual HTML files for each blog post:
 </head>
 <body class="bg-white text-gray-900 font-sans">
     <div class="max-w-4xl mx-auto p-6">
-        <a href="../bbenson.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back to Home</a>
+        <a href="../index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back to Home</a>
         <h1 class="text-3xl font-bold mb-4">Your Post Title</h1>
         <p class="text-gray-600 mb-6">Published on: Date</p>
         <div class="prose max-w-none">
@@ -114,7 +114,7 @@ Content with **bold** and *italic* text.
 ```
 
 ### Step 4: Update Main Page
-Modify the blog section in `bbenson.html` to display Jekyll posts:
+Modify the blog section in `index.html` to display Jekyll posts:
 
 ```html
 <section id="blog" class="tab-content hidden">

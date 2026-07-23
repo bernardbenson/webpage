@@ -1,0 +1,211 @@
+%==============================================================================
+% Bernard Benson, PhD --- Long-form Academic CV
+% Compile with: pdflatex CV_BernardBenson.tex  (run twice for hyperref refs)
+%           or: latexmk -pdf CV_BernardBenson.tex
+%==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+
+% --- Section heading: small-caps with a full-width rule underneath ----------
+\titleformat{\section}
+  {\large\scshape\bfseries}
+  {}{0em}{}[\vspace{-0.5ex}\titlerule]
+\titlespacing{\section}{0pt}{1.4ex plus 0.4ex minus 0.2ex}{1.0ex}
+
+\setlist[itemize]{leftmargin=1.4em, topsep=0.2ex, itemsep=0.2ex, parsep=0pt}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% --- Helper: an experience/appointment entry --------------------------------
+% \cventry{Role}{Organization, Location}{Dates}
+\newcommand{\cventry}[3]{%
+  \par\vspace{0.6ex}%
+  \noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & \textbf{#3}\\
+    \textit{#2} & \\
+  \end{tabularx}%
+  \vspace{-0.4ex}%
+}
+
+% --- Helper: a simple two-column line (left text, right-aligned date) --------
+\newcommand{\daterow}[2]{%
+  \noindent\begin{tabularx}{\textwidth}{@{}X r@{}}#1 & #2\end{tabularx}\par
+}
+
+% --- Helper: a publication item; bolds the author name automatically ---------
+\newcommand{\me}{\textbf{B.~Benson}}
+\newlist{pubs}{enumerate}{1}
+\setlist[pubs]{leftmargin=2.0em, label=[\arabic*], topsep=0.4ex, itemsep=0.6ex, parsep=0pt, labelsep=0.5em}
+
+%==============================================================================
+\begin{document}
+
+% ----------------------------- HEADER ---------------------------------------
+\begin{center}
+  {\LARGE\bfseries Bernard Benson, PhD}\\[0.6ex]
+  {\small
+    \href{mailto:bernardvbenson@gmail.com}{bernardvbenson@gmail.com}
+    \;$|$\; 803-931-2777
+    \;$|$\; \href{https://www.linkedin.com/in/bernardbenson}{LinkedIn}
+    \;$|$\; \href{https://scholar.google.com/citations?user=uiHWfLEAAAAJ}{Google Scholar}
+    \;$|$\; \href{https://github.com/bernardbenson}{GitHub}
+  }
+\end{center}
+\vspace{0.4ex}
+
+% ------------------------- RESEARCH INTERESTS -------------------------------
+\section{Research Interests}
+Machine learning and deep learning for the physical sciences; heliophysics and space-weather
+forecasting; time-series modeling and uncertainty quantification; natural language processing
+and large language models (retrieval-augmented generation, agentic and MCP-based tools);
+computer vision.
+
+% ------------------------------ EDUCATION -----------------------------------
+\section{Education}
+\cventry{Ph.D., Electrical and Computer Engineering}{University of Alabama in Huntsville, Huntsville, AL}{}
+
+\cventry{M.S., Electrical and Computer Engineering}{University of Alabama in Huntsville, Huntsville, AL}{}
+
+\cventry{B.Tech., Electrical and Electronics Engineering}{Geethanjali College of Engineering and Technology}{}
+
+% ----------------------------- APPOINTMENTS ---------------------------------
+\section{Appointments \& Professional Experience}
+
+\cventry{Research Scientist IV}{NASA ODSI, University of Alabama in Huntsville, Huntsville, AL}{May 2025 -- Present}
+\begin{itemize}
+  \item Developed ensemble large language models for multi-label text classification of scientific documents.
+  \item Built a search wrapper modernizing the backend of NASA's Science Discovery Engine (SDE) using OpenSearch.
+  \item Researched and developed MCP tools for PDS4 and SDE data-search agents.
+\end{itemize}
+
+\cventry{Generative AI Solutions Architect}{Megan Soft VA, Remote}{Dec 2024 -- May 2025}
+\begin{itemize}
+  \item Developed an evaluation framework for generative-AI chatbots and RAG systems using DeepEval and Ragas.
+  \item Established KPIs and testing procedures to optimize performance and user satisfaction.
+  \item Designed multi-chatbot orchestration strategies for agents with overlapping capabilities.
+  \item Designed and implemented recommender systems for pharmacy benefits management.
+\end{itemize}
+
+\cventry{Data Scientist}{McLeod Software, Birmingham, AL}{Aug 2021 -- Nov 2024}
+\begin{itemize}
+  \item Led development and deployment of ML models predicting freight rates for over 1,100 trucking organizations, improving pricing accuracy and efficiency.
+  \item Designed and deployed retrieval-augmented-generation (RAG) chatbots for customer support, reducing resolution times.
+  \item Built and deployed LayoutLMv2-based models to automate document classification.
+  \item Led research and analysis of AI applications across the transportation and logistics industry.
+  \item Represented McLeod Software as a conference speaker at industry events on AI in transportation and logistics.
+\end{itemize}
+
+\cventry{Applied ML Researcher}{Frontier Development Lab (NASA / SETI Institute), Remote}{Jun 2021 -- Aug 2021}
+\begin{itemize}
+  \item Applied machine learning to model the effect of solar drag on satellite orbits as part of a NASA-sponsored research project.
+  \item Developed a multivariate time-series model based on deep neural network ensembles to forecast space-weather indices.
+  \item Earned a team excellence award for the project.
+\end{itemize}
+
+\cventry{Graduate Teaching Assistant}{University of Alabama in Huntsville, Huntsville, AL}{Aug 2016 -- May 2021}
+\begin{itemize}
+  \item Taught and supervised lab sections for CPE211L Introduction to Programming (C++).
+  \item Taught EE316 Electrical Circuits and Electrical Design Lab (Summer 2017).
+\end{itemize}
+
+\cventry{RF Engineer}{Nexgen Wireless / Global Telecom Associates, Milwaukee, WI}{Mar 2013 -- Mar 2016}
+\begin{itemize}
+  \item Analyzed drive-test data and network logs to identify and resolve coverage gaps and interference issues, improving network performance.
+  \item Visualized network performance with heatmaps and coverage plots to support data-driven optimization.
+\end{itemize}
+
+% ----------------------------- PUBLICATIONS ---------------------------------
+\section{Publications}
+
+\textbf{\itshape Refereed Journal Articles}
+\begin{pubs}
+  \item \me, W.~D.~Pan, A.~Prasad, G.~A.~Gary, and Q.~Hu, ``Forecasting Solar Cycle 25 Using Deep Neural Networks,'' \textit{Solar Physics}, vol.~295, no.~5, art.~65, 2020.
+  \item T.~Singh, \me, S.~A.~Z.~Raza, T.~K.~Kim, N.~V.~Pogorelov, W.~P.~Smith, and C.~N.~Arge, ``Improving the Arrival-Time Estimates of Coronal Mass Ejections by Using Magnetohydrodynamic Ensemble Modeling, Heliospheric Imager Data, and Machine Learning,'' \textit{The Astrophysical Journal}, vol.~948, no.~2, art.~78, 2023.
+  \item \me, W.~D.~Pan, G.~A.~Gary, Q.~Hu, and T.~Staudinger, ``Determining the Parameter for the Linear Force-Free Magnetic Field Model with Multi-Dipolar Configurations Using Deep Neural Networks,'' \textit{Astronomy and Computing}, vol.~26, pp.~50--60, 2019.
+  \item T.~S.~Newman, C.~W.~Hall, L.~Farris, T.~Singh, N.~Pogorelov, \me, S.~Raza, \textit{et al.}, ``Solar Flare Forecasting Using Machine Learning and SDO/HMI Data: A Multiple Machine Learning Model and Data Curation Technique Comparison Study,'' \textit{The Astrophysical Journal Supplement Series}, vol.~280, no.~2, art.~54, 2025.
+  \item \me, W.~D.~Pan, A.~Prasad, G.~A.~Gary, and Q.~Hu, ``On the Estimation of the SHARP Parameter MEANALP from AIA Images Using Deep Neural Networks,'' \textit{Solar Physics}, vol.~296, no.~11, art.~163, 2021.
+\end{pubs}
+
+\vspace{0.6ex}
+\textbf{\itshape Conference and Workshop Papers, Abstracts, and Posters}
+\begin{pubs}
+  \item S.~Bonasera, G.~Acciarini, J.~A.~P\'erez-Hern\'andez, \me, E.~Brown, \textit{et al.}, ``Dropout and Ensemble Networks for Thermospheric Density Uncertainty Estimation,'' \textit{Bayesian Deep Learning Workshop, NeurIPS 2021}, 2021.
+  \item E.~J.~E.~Brown, S.~Bonasera, \me, J.~A.~P\'erez-Hern\'andez, G.~Acciarini, \textit{et al.}, ``Learning the Solar Latent Space: Sigma-Variational Autoencoders for Multiple Channel Solar Imaging,'' \textit{Fourth Workshop on Machine Learning and the Physical Sciences, NeurIPS 2021}, 2021.
+  \item \me, E.~Brown, S.~Bonasera, G.~Acciarini, J.~A.~P\'erez-Hern\'andez, \textit{et al.}, ``Simultaneous Multivariate Forecast of Space Weather Indices Using Deep Neural Network Ensembles,'' \textit{Fourth Workshop on Machine Learning and the Physical Sciences, NeurIPS 2021}, 2021.
+  \item \me, Z.~Jiang, W.~D.~Pan, G.~A.~Gary, and Q.~Hu, ``Determination of Linear Force-Free Magnetic Field Constant Alpha Using Deep Learning,'' \textit{International Conference on Computational Science and Computational Intelligence (CSCI)}, 2017.
+  \item T.~Singh, L.~Farris, C.~Hall, T.~Newman, \me, S.~Raza, and N.~Pogorelov, ``Solar Flare Forecasting Using Multiple Machine Learning Models and SDO/HMI Data,'' \textit{SHINE 2024 Workshop}, 2024.
+  \item R.~Hooda, W.~D.~Pan, and \me, ``Transform Decomposition Switching for Efficient Attribute Compression of 3D Point Clouds Using Neural Networks,'' \textit{International Conference on Computational Science and Computational Intelligence (CSCI)}, 2022.
+  \item T.~Singh, \me, \textit{et al.}, ``Improving the Arrival-Time Prediction of Coronal Mass Ejections Using Magnetohydrodynamic Ensemble Modeling, Heliospheric Imager Data, and Machine Learning,'' \textit{Proceedings of the 2nd Machine Learning in Heliophysics Conference}, 2022.
+  \item C.~Davis, B.~Praveen, E.~Foshee, K.~Bugbee, D.~Sharma, N.~Pantha, S.~Awale, \me, \textit{et al.}, ``LLMs, Encoders, and Agentic Workflows for Curation and Discovery in NASA's Science Discovery Engine,'' \textit{AGU Fall Meeting 2025}, 2025.
+  \item T.~Singh, C.~Hall, T.~Newman, \me, S.~Raza, and N.~Pogorelov, ``Solar Flare Forecasting Using Machine Learning and SDO/HMI Data: A Comparison of Multiple ML Models and AR Parameter Time Series,'' \textit{SHINE 2023 Workshop}, 2023.
+  \item T.~Singh, \me, \textit{et al.}, ``Forecasting Solar Flares Using the Time Evolution of Active Regions and Machine Learning Techniques,'' \textit{NASA Proposal ID 21-SWR2O2R\_2-0011}, 2021.
+\end{pubs}
+
+% ----------------------------- INVITED TALKS --------------------------------
+\section{Invited Talks}
+\begin{itemize}
+  \item ``Deep Neural Networks Applied to Three Problems in Heliophysics: Coronal Magnetic Field Modeling, Free Magnetic Energy, and Forecasting Solar Activity,'' NASA Marshall Space Flight Center, Heliophysics Division, Sep.~2020.
+  \item ``Applications of AI in Logistics and Supply Chain,'' Auburn University, Harbert College of Business, Oct.~2023.
+  \item ``AI in the Supply Chain,'' Mississippi State University, College of Business, Mar.~2024.
+\end{itemize}
+
+% ------------------------------- TEACHING -----------------------------------
+\section{Teaching Experience}
+\begin{itemize}
+  \item \textbf{CPE211L --- Introduction to Programming (C++)}, undergraduate lab instructor, University of Alabama in Huntsville.
+  \item \textbf{EE316 --- Electrical Circuits and Electrical Design Lab}, undergraduate lab instructor, University of Alabama in Huntsville (Summer 2017).
+\end{itemize}
+
+% --------------------------- HONORS & AWARDS --------------------------------
+\section{Honors \& Awards}
+\begin{itemize}
+  \item Team Excellence Award, Frontier Development Lab (NASA / SETI Institute), 2021.
+\end{itemize}
+
+% --------------------------- PROFESSIONAL SERVICE ---------------------------
+\section{Professional Service}
+\textbf{Reviewer}
+\begin{itemize}
+  \item Research proposals, NASA Heliophysics.
+  \item \textit{Journal of Geophysical Research: Machine Learning and Computation.}
+  \item \textit{Journal of Atmospheric and Solar-Terrestrial Physics.}
+  \item \textit{Solar Physics.}
+  \item Journals of the American Astronomical Society.
+  \item IEEE SoutheastCon --- AI and ML tracks (Mar.~2021).
+\end{itemize}
+\textbf{Session Chair}
+\begin{itemize}
+  \item IEEE SoutheastCon --- Computing track (Mar.~2021).
+\end{itemize}
+
+% ------------------------ SELECTED RESEARCH PROJECTS ------------------------
+\section{Selected Research Projects}
+\begin{itemize}
+  \item \textbf{Improving CME Arrival Time with Ensemble Models and Machine Learning} --- regression and neural-network models to improve coronal mass ejection arrival-time predictions.
+  \item \textbf{Simultaneous Multivariate Forecasts of Space-Weather Indices using DNN Ensembles} --- LSTM ensembles forecasting space-weather indices over a full solar rotation.
+  \item \textbf{Solar Image Processing for Flare Detection} --- spatial and frequency-domain filtering to enhance coronal loops, latent-space visualization with VAEs, and relating SHARP parameters to flaring events.
+  \item \textbf{Time-Series Forecast of Solar Cycle 25 using Deep Neural Networks} --- WaveNet and LSTM models predicting the strength of Solar Cycle 25.
+\end{itemize}
+
+% ----------------------------- TECHNICAL SKILLS -----------------------------
+\section{Technical Skills}
+\begin{itemize}
+  \item \textbf{Programming Languages:} Python, SQL, C++, MATLAB.
+  \item \textbf{Machine Learning \& Deep Learning:} PyTorch, TensorFlow, Keras, scikit-learn; CNNs, RNNs, LSTMs, Transformers; retrieval-augmented generation (RAG) and large language models.
+  \item \textbf{Data Analysis \& Visualization:} Pandas, NumPy, SciPy, Matplotlib, Seaborn, Plotly, Power BI, Tableau.
+  \item \textbf{Cloud \& DevOps:} AWS, Azure, Google Cloud Platform; Docker, Git, CI/CD pipelines, REST APIs.
+\end{itemize}
+
+\end{document}
