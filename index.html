@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Force light rendering everywhere; "only light" opts out of mobile
+         browsers' automatic dark-mode darkening (Chrome Android, etc.). -->
+    <meta name="color-scheme" content="light only">
+    <title>Bernard Benson, PhD</title>
+
+    <!-- Tufte CSS + ET Book typeface (Edward Tufte's design language) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+    <!-- Font Awesome for the social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ---- Tufte-flavoured customisations ---- */
+        body { counter-reset: sidenote-counter; }
+
+        /* This site is light-mode only. Tufte CSS ships a dark theme that kicks
+           in with the OS preference; override it so the page always stays light.
+           "only light" also stops mobile browsers from algorithmically darkening
+           the page (Chrome Android's "Darken websites", Samsung Internet, etc.),
+           which ignores the prefers-color-scheme override below. */
+        :root, html { color-scheme: only light; }
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #fffff8; color: #111; }
+            a:link, .tufte-underline, .hover-tufte-underline:hover {
+                text-shadow: .03em 0 #fffff8, -.03em 0 #fffff8, .06em 0 #fffff8, -.06em 0 #fffff8,
+                             .09em 0 #fffff8, -.09em 0 #fffff8, .12em 0 #fffff8, -.12em 0 #fffff8,
+                             .15em 0 #fffff8, -.15em 0 #fffff8, 0 .03em #fffff8, 0 -.03em #fffff8;
+            }
+        }
+
+        /* keep the whole document comfortably narrow, like the tufte-blog */
+        article { padding: 4rem 0 2rem 0; }
+
+        /* the social row sits quietly under the subtitle */
+        .social {
+            margin-top: 1.4rem;
+            font-size: 1.4rem;
+        }
+        .social a {
+            color: #5a5a52;
+            margin-right: 1.6rem;
+            text-decoration: none;
+            background: none;
+            text-shadow: none;
+        }
+        .social a:hover { color: #111; }
+
+        /* portrait, dropped into the right margin */
+        .portrait img {
+            width: 100%;
+            display: block;
+            margin-bottom: 0.4rem;
+            filter: grayscale(15%);
+        }
+        .portrait .caption {
+            font-style: italic;
+            font-size: 1.0rem;
+            color: #5a5a52;
+        }
+
+        /* dates rendered as quiet margin notes */
+        .date { font-style: italic; color: #5a5a52; }
+
+        /* publications read as a flowing reference list */
+        ol.bibliography { list-style: none; counter-reset: bib; padding-left: 0; }
+        ol.bibliography > li {
+            counter-increment: bib;
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 1.1rem;
+            line-height: 1.5;
+        }
+        ol.bibliography > li::before {
+            content: counter(bib) ".";
+            position: absolute;
+            left: 0;
+            color: #b0aca0;
+        }
+
+        /* a restrained role heading */
+        .role { margin-top: 2.2rem; margin-bottom: 0.2rem; font-weight: 400; font-size: 1.5rem; }
+        .role + .place { margin-top: 0; font-style: italic; color: #5a5a52; }
+
+        /* the logo strip in the colophon */
+        .colophon { margin-top: 5rem; border-top: 1px solid #e6e3da; padding-top: 1.6rem; }
+        .logos {
+            display: flex; flex-wrap: wrap; align-items: center;
+            gap: 1.8rem; margin: 1rem 0 1.6rem 0;
+        }
+        .logos img { height: 4rem; width: auto; filter: grayscale(100%) opacity(0.75); transition: filter .3s ease; }
+        .logos img:hover { filter: grayscale(0%) opacity(1); }
+        /* logos that ship with a white background: dissolve the white into the
+           cream page so they read as neutral rather than as white boxes. */
+        .logos img.onwhite { mix-blend-mode: multiply; }
+        .colophon p { font-size: 1.1rem; color: #5a5a52; }
+
+        /* Tufte hides margin notes on narrow screens; the portrait should
+           still show, so reveal it inline above the intro on phones. */
+        @media (max-width: 760px) {
+            .portrait.marginnote {
+                display: block;
+                float: none;
+                clear: both;
+                width: 60%;
+                max-width: 240px;
+                margin: 0 0 1.4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<article>
+
+    <h1>Bernard Benson, PhD</h1>
+    <p class="subtitle">Research Scientist at NASA&ndash;ODSI</p>
+
+    <p class="social">
+        <a href="mailto:bernardvbenson@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=uiHWfLEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://www.linkedin.com/in/bernardvbenson/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/bernardbenson" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+    </p>
+
+    <section>
+        <p>
+            <span class="marginnote portrait">
+                <img src="./bernard.jpg" alt="Bernard Benson">
+            </span>
+            I am a Research Scientist with over five years of academic research and applied machine-learning
+            experience. My work sits at the intersection of signal and image processing, deep neural networks,
+            and the physical sciences &mdash; from forecasting solar activity and space weather to building
+            search and language systems for scientific discovery. You can read my
+            <a href="./cv/CV_BernardBenson.pdf" target="_blank" rel="noopener noreferrer">CV here</a>.
+        </p>
+
+        <h2>Research Interests</h2>
+        <p>
+            Image processing, signal processing, machine learning, and deep neural networks &mdash; applied to
+            solar physics and space weather, transportation, and operations research.
+        </p>
+    </section>
+
+    <section class="colophon">
+        <p>Organizations I&rsquo;ve worked with:</p>
+        <div class="logos">
+            <img src="./nasa-logo.png" alt="NASA-ODSI">
+            <img src="./uah-logo-blue.png" alt="University of Alabama in Huntsville">
+            <img class="onwhite" src="./mcleod-logo.jpg" alt="McLeod Software">
+            <img src="./fdl-logo.png" alt="NASA Frontier Development Lab">
+            <img class="onwhite" src="./gta-logo.jpg" alt="GTA">
+            <img class="onwhite" src="./nexgen-wireless-logo-2.jpg" alt="Nexgen Wireless">
+        </div>
+        <p>&copy; 2026 Bernard Benson.</p>
+    </section>
+
+</article>
+</body>
+</html>
