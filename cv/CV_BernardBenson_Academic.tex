@@ -17,6 +17,7 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{tabularx}
+\usepackage{needspace}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage[hidelinks]{hyperref}
@@ -52,10 +53,22 @@
 \fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
   \fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}}}
 
+% --- Page-break rules: never split a block across two pages ------------------
+% No page break inside a paragraph, a bullet, or a publication entry.
+\interlinepenalty=10000
+\clubpenalty=10000
+\widowpenalty=10000
+% Keep each bullet list in one piece, and keep it with the title line above it.
+\usepackage{etoolbox}
+\makeatletter
+\AtBeginEnvironment{itemize}{\@beginparpenalty=10000 \@itempenalty=10000}
+\makeatother
+
 % --- Helper: an experience/appointment entry --------------------------------
 % \cventry{Role}{Organization, Location}{Dates}
+% Starts a new page if fewer than 5 lines remain, so the title stays with its bullets.
 \newcommand{\cventry}[3]{%
-  \par\vspace{0.6ex}%
+  \par\needspace{5\baselineskip}\vspace{0.6ex}%
   \noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
     \textbf{#1} & \textbf{#3}\\
     \textit{#2} & \\
@@ -118,7 +131,7 @@
 % -------------- RESEARCH, TEACHING, AND INDUSTRY EXPERIENCE -----------------
 \section{Research, Teaching, and Industry Experience}
 
-\cventry{Research Scientist VI}{NASA Office of Data Science and Informatics (ODSI), University of Alabama in Huntsville, Huntsville, AL}{May 2025 -- Present}
+\cventry{Research Scientist VI}{NASA Office of Data Science and Informatics (ODSI)\newline University of Alabama in Huntsville, Huntsville, AL}{May 2025 -- Present}
 \begin{itemize}
   \item Research and develop ensemble large language models for multi-label classification of scientific documents, to support the curation of NASA's Science Discovery Engine (SDE).
   \item Designed a search layer on OpenSearch that modernizes the SDE backend for discovery across NASA science data and literature.
@@ -132,7 +145,7 @@
 
 \cventry{Data Scientist}{McLeod Software, Birmingham, AL}{Aug 2021 -- Nov 2024}
 \begin{itemize}
-  \item Led applied ML research for freight-rate prediction across more than 1,100 trucking organizations; built RAG chatbots and LayoutLMv2-based document classifiers.
+  \item Applied ML research and development for freight-rate prediction across more than 1,100 trucking organizations; built RAG chatbots and LayoutLMv2-based document classifiers.
   \item Gave invited talks at universities and industry conferences on AI in transportation and logistics.
 \end{itemize}
 
@@ -143,7 +156,7 @@
   \item The team received the Frontier Development Lab Team Excellence Award.
 \end{itemize}
 
-\cventry{Graduate Teaching Assistant}{Department of Electrical and Computer Engineering, University of Alabama in Huntsville}{Aug 2016 -- May 2021}
+\cventry{Graduate Teaching Assistant}{Department of Electrical and Computer Engineering\newline University of Alabama in Huntsville, Huntsville, AL}{Aug 2016 -- May 2021}
 \begin{itemize}
   \item \textbf{CPE 211L --- Introduction to Programming in C++ (Laboratory)}, Lab Instructor, 2016 -- 2021. Led weekly lab sections, taught programming fundamentals.
   \item \textbf{EE 316 --- Electrical Circuits and Electrical Design Laboratory}, Lab Instructor, Summer 2017. Supervised circuit-design experiments and lab safety, and gave technical guidance to students.
